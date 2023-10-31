@@ -15,7 +15,7 @@ public class TrabalhoPOO {
      */
     public static void main(String[] args) {
         
-        System.out.println("Ola senhores ");
+        System.out.println("Ola senhores    ");
     }
     
 }
