@@ -51,10 +51,10 @@ public class TrabalhoFinal {
         Lancamento receita4 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Recebimento.SALARIO);
         
         conta.inserirReceita(receita);
-                conta.inserirReceita(receita1);
-                conta.inserirReceita(receita2);
-                conta.inserirReceita(receita3);
-                conta.inserirReceita(receita4);
+        conta.inserirReceita(receita1);
+        conta.inserirReceita(receita2);
+        conta.inserirReceita(receita3);
+        conta.inserirReceita(receita4);
 
         
         ArrayList<Lancamento> receitas = conta.getReceita();
@@ -62,7 +62,7 @@ public class TrabalhoFinal {
         for(Lancamento l : receitas){
             System.out.println(l.getValor());
                         System.out.println(l.getData());
-                        //    System.out.println(l.getReceita());
+                            System.out.println(l);
                         
         }
         
