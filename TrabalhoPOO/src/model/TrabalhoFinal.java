@@ -20,52 +20,62 @@ public class TrabalhoFinal {
      */
     public static void main(String[] args) {
 
-        
         Conta conta = new Conta();
-        
-        Lancamento despesa = new Despesa(5589.75, LocalDate.now(), Gastos.SAUDE);
-        Despesa despesa1 = new Despesa(5589.75, LocalDate.now(), Gastos.SAUDE);
-        Despesa despesa2 = new Despesa(1200.50, LocalDate.now(), Gastos.TRANSPORTE);
-        Despesa despesa3 = new Despesa(300.00, LocalDate.now(), Gastos.ALIMENTACAO);
-        
+
+        Despesa despesa = new Despesa(500.0, LocalDate.now(), Gastos.SAUDE);
+        Despesa despesa1 = new Despesa(500.0, LocalDate.of(2024, Month.MARCH, 15), Gastos.SAUDE);
+        Despesa despesa2 = new Despesa(500.0, LocalDate.now(), Gastos.TRANSPORTE);
+        Despesa despesa3 = new Despesa(0.0, LocalDate.now(), Gastos.ALIMENTACAO);
+
         conta.inserirDespesa(despesa);
         conta.inserirDespesa(despesa1);
         conta.inserirDespesa(despesa2);
         conta.inserirDespesa(despesa3);
-        
+
         ArrayList<Lancamento> topDespesas = conta.getDespesas();
-        
-        for(Lancamento l : topDespesas){
-            System.out.println(l.getValor());
-                        System.out.println(l.getData());
-                           // System.out.println(l.getGasto());
-                        
+
+        for (Lancamento l : topDespesas) {
+            if (l instanceof Despesa) {
+                System.out.println(l.getValor());
+                System.out.println(l.getData());
+                System.out.println(((Despesa) l).getGasto());
+            }
+
         }
-        
-                        System.out.println("+++++++++++++++++++++++++++++++++++++");
+
+        System.out.println("+++++++++++++++++++++++++++++++++++++");
 
         Lancamento receita = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Recebimento.SALARIO);
         Lancamento receita1 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Recebimento.FERIAS);
         Lancamento receita2 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Recebimento.OUTRAS);
         Lancamento receita3 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Recebimento.DECIME_TERCEIRO);
         Lancamento receita4 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Recebimento.SALARIO);
-        
+
         conta.inserirReceita(receita);
         conta.inserirReceita(receita1);
         conta.inserirReceita(receita2);
         conta.inserirReceita(receita3);
         conta.inserirReceita(receita4);
 
-        
         ArrayList<Lancamento> receitas = conta.getReceita();
-        
-        for(Lancamento l : receitas){
+
+        for (Lancamento l : receitas) {
             System.out.println(l.getValor());
-                        System.out.println(l.getData());
-                            System.out.println(l);
-                        
+            System.out.println(l.getData());
+            System.out.println(((Receita) l).getRecebimento());
+
         }
-        
+
+        System.out.println("+++++++++++++++++++++++++++++++++++++");
+
+        System.out.println(conta.getSaldoAtual());
+
+        System.out.println("+++++++++++++++++++++++++++++++++++++");
+
+        conta.getSaldoTotal();
+
+        System.out.println(conta.getSaldoTotal());
+
     }
 
 }
