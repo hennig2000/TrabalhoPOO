@@ -14,6 +14,7 @@ import java.util.ArrayList;
  */
 public class Conta {
 
+    private double saldoTotal;
     private double saldoAtual;
     private ArrayList<Lancamento> lancamento = new ArrayList<>();
 
@@ -29,12 +30,36 @@ public class Conta {
         return saldoAtual;
     }
 
+    public double getSaldoTotal() {
+        return saldoTotal;
+    }
+
+    public void setSaldoTotal(double saldoTotal) {
+        this.saldoTotal = saldoTotal;
+    }
+
+    public void saldoTotal(){
+        
+    }
+    
+    public Double getDespesasAtuais() {
+        ArrayList<Lancamento> despesas = getDespesas();
+
+        Double despesasAtuais = 0.0;
+
+        for (Lancamento l : despesas) {
+            if (l instanceof Despesa) {
+                if (l.getData().isBefore(LocalDate.now()) || l.getData().equals(LocalDate.now())) {
+                    despesasAtuais += l.getValor();
+                }
+            }
+        }
+        return despesasAtuais;
+    }
+
     public void setSaldoAtual() {
-
         ArrayList<Lancamento> receita = getReceita();
-
         Double saldoAtualCalculo = 0.0;
-
         for (Lancamento saldo : receita) {
             if (saldo instanceof Receita) {
                 if (saldo.getData().isBefore(LocalDate.now()) || saldo.getData().equals(LocalDate.now())) {
@@ -43,7 +68,7 @@ public class Conta {
             }
         }
 
-        this.saldoAtual = saldoAtualCalculo;
+        this.saldoAtual = saldoAtualCalculo - getDespesasAtuais();
     }
 
     public ArrayList<Lancamento> getReceita() {
@@ -64,6 +89,7 @@ public class Conta {
         } else {
             throw new IllegalArgumentException("Não é uma instancia de Receita");
         }
+        setSaldoAtual();
     }
 
     public ArrayList<Lancamento> getDespesas() {
@@ -77,8 +103,6 @@ public class Conta {
     }
 
     public void inserirDespesa(Lancamento despesa) {
-
-        
         if (despesa instanceof Despesa && despesa != null) {
             lancamento.add(despesa);
         } else {
