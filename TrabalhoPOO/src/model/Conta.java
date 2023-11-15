@@ -8,7 +8,6 @@ package model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-// Teste
 /**
  *
  * @author pedro
@@ -17,6 +16,7 @@ public class Conta {
 
     private double saldoTotal;
     private double saldoAtual;
+
     private ArrayList<Lancamento> lancamento = new ArrayList<>();
 
     public ArrayList<Lancamento> getLancamento() {
@@ -39,14 +39,36 @@ public class Conta {
         this.saldoTotal = saldoTotal;
     }
 
-    public void saldoTotal(){
-        
+    public void saldoTotal() {
+
+        ArrayList<Lancamento> receita = getReceita();
+        Double saldoAtualCalculo = 0.0;
+        for (Lancamento saldo : receita) {
+            if (saldo instanceof Receita) {
+                saldoAtualCalculo += saldo.getValor();
+            }
+        }
+        setSaldoTotal(saldoAtualCalculo - despesasTotal());
     }
-    
+
+    public Double despesasTotal() {
+        ArrayList<Lancamento> despesas = getDespesas();
+
+        Double despesasTotais = 0.0;
+
+        for (Lancamento l : despesas) {
+            if (l instanceof Despesa) {
+                despesasTotais += l.getValor();
+            }
+        }
+        return despesasTotais;
+    }
+
     public Double getDespesasAtuais() {
         ArrayList<Lancamento> despesas = getDespesas();
 
         Double despesasAtuais = 0.0;
+
 
         for (Lancamento l : despesas) {
             if (l instanceof Despesa) {
@@ -90,6 +112,7 @@ public class Conta {
         } else {
             throw new IllegalArgumentException("Não é uma instancia de Receita");
         }
+        saldoTotal();
         setSaldoAtual();
     }
 
@@ -104,7 +127,7 @@ public class Conta {
     }
 
     public void inserirDespesa(Lancamento despesa) {
-        if (despesa instanceof Despesa && despesa != null) {
+        if (despesa instanceof Despesa) {
             lancamento.add(despesa);
         } else {
             throw new IllegalArgumentException("Não é uma instancia de Despesa");
