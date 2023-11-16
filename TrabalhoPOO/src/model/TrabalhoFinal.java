@@ -5,6 +5,8 @@
  */
 package model;
 
+import enuns.Receita;
+import enuns.Despesa;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
@@ -38,18 +40,18 @@ public class TrabalhoFinal {
             if (l instanceof Despesas) {
                 System.out.println(l.getValor());
                 System.out.println(l.getData());
-                System.out.println(((Despesas) l).getGasto());
+                System.out.println(((Despesas) l).getDespesa());
             }
 
         }
 
         System.out.println("+++++++++++++++++++++++++++++++++++++");
 
-        Lancamento receita = new Recebimentos(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Recebimento.SALARIO);
-        Lancamento receita1 = new Recebimentos(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Recebimento.FERIAS);
-        Lancamento receita2 = new Recebimentos(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Recebimento.OUTRAS);
-        Lancamento receita3 = new Recebimentos(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Recebimento.DECIME_TERCEIRO);
-        Lancamento receita4 = new Recebimentos(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Recebimento.SALARIO);
+        Lancamento receita = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Receitas.SALARIO);
+        Lancamento receita1 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Receitas.FERIAS);
+        Lancamento receita2 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Receitas.OUTRAS);
+        Lancamento receita3 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Receitas.DECIME_TERCEIRO);
+        Lancamento receita4 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Receitas.SALARIO);
 
         conta.inserirReceita(receita);
         conta.inserirReceita(receita1);
@@ -62,7 +64,7 @@ public class TrabalhoFinal {
         for (Lancamento l : receitas) {
             System.out.println(l.getValor());
             System.out.println(l.getData());
-            System.out.println(((Recebimentos) l).getRecebimento());
+            System.out.println(((Receita) l).getReceita());
 
         }
 

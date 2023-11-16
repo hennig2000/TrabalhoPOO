@@ -5,6 +5,7 @@
  */
 package model;
 
+import enuns.Receita;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -39,19 +40,19 @@ public class Conta {
         this.saldoTotal = saldoTotal;
     }
 
-    public void saldoTotal() {
+    private void setSaldoTotal() {
 
         ArrayList<Lancamento> receita = getReceita();
         Double saldoAtualCalculo = 0.0;
         for (Lancamento saldo : receita) {
-            if (saldo instanceof Recebimentos) {
+            if (saldo instanceof Receita) {
                 saldoAtualCalculo += saldo.getValor();
             }
         }
-        setSaldoTotal(saldoAtualCalculo - despesasTotal());
+        Conta.this.setSaldoTotal(saldoAtualCalculo - getDespesasTotal());
     }
 
-    public Double despesasTotal() {
+    public Double getDespesasTotal() {
         ArrayList<Lancamento> despesas = getDespesas();
 
         Double despesasTotais = 0.0;
@@ -80,11 +81,11 @@ public class Conta {
         return despesasAtuais;
     }
 
-    public void setSaldoAtual() {
+    private void setSaldoAtual() {
         ArrayList<Lancamento> receita = getReceita();
         Double saldoAtualCalculo = 0.0;
         for (Lancamento saldo : receita) {
-            if (saldo instanceof Recebimentos) {
+            if (saldo instanceof Receita) {
                 if (saldo.getData().isBefore(LocalDate.now()) || saldo.getData().equals(LocalDate.now())) {
                     saldoAtualCalculo += saldo.getValor();
                 }
@@ -99,7 +100,7 @@ public class Conta {
         ArrayList<Lancamento> receita = new ArrayList<>();
 
         for (Lancamento lancamento : this.lancamento) {
-            if (lancamento instanceof Recebimentos) {
+            if (lancamento instanceof Receita) {
                 receita.add(lancamento);
             }
         }
@@ -107,12 +108,12 @@ public class Conta {
     }
 
     public void inserirReceita(Lancamento receita) {
-        if (receita instanceof Recebimentos) {
+        if (receita instanceof Receita) {
             lancamento.add(receita);
         } else {
             throw new IllegalArgumentException("Não é uma instancia de Receita");
         }
-        saldoTotal();
+        setSaldoTotal();
         setSaldoAtual();
     }
 

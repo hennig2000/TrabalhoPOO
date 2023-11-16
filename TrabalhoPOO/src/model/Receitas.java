@@ -10,7 +10,7 @@ package model;
  *
  * @author pedro
  */
-public enum Recebimento {
+public enum Receitas {
     SALARIO,
     DECIME_TERCEIRO,
     FERIAS,

@@ -5,6 +5,7 @@
  */
 package model;
 
+import enuns.Despesa;
 import java.time.LocalDate;
 
 /**
@@ -18,18 +19,18 @@ public class Despesas extends Lancamento {
      public Despesas(
             Double valor,
             LocalDate data,
-            Despesa gasto
+            Despesa despesa
     ) {
         super(valor, data);
-        this.despesa = gasto;
+        this.despesa = despesa;
     }
     
-    public Despesa getGasto() {
+    public Despesa getDespesa() {
         return despesa;
     }
 
-    public void setGasto(Despesa gasto) {
-        this.despesa = gasto;
+    public void setDespesa(Despesa despesa) {
+        this.despesa = despesa;
     }
 
    

@@ -21,26 +21,7 @@ public abstract class Lancamento {
     
     private Double valor;
     private LocalDate data;
-    //private Gastos gasto;
-    //private Receita receita;
-
-    /*
-    public Receita getReceita() {
-        return receita;
-    }
-
-    public void setReceita(Receita receita) {
-        this.receita = receita;
-    }
-
-    public Gastos getGasto() {
-        return gasto;
-    }
-
-    public void setGasto(Gastos gasto) {
-        this.gasto = gasto;
-    }
-    */
+    
     public Double getValor() {
         return valor;
     }
