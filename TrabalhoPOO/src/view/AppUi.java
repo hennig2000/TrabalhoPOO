@@ -4,8 +4,14 @@
  */
 package view;
 
+import model.Conta;
+import model.Despesas;
+import model.Lancamento;
+
 public class AppUi extends javax.swing.JFrame {
 
+    Conta conta = new Conta();
+    
     public AppUi() {
         initComponents();
     }
@@ -14,6 +20,8 @@ public class AppUi extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
         jPLancamentos = new javax.swing.JPanel();
         btIncluirReceita = new javax.swing.JButton();
         btIncluirDespesa = new javax.swing.JButton();
@@ -26,6 +34,8 @@ public class AppUi extends javax.swing.JFrame {
         btListarLancamentos = new javax.swing.JButton();
         btListarDespesas = new javax.swing.JButton();
         btListarReceitas = new javax.swing.JButton();
+
+        jScrollPane1.setViewportView(jEditorPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Controle de Lançamentos");
@@ -126,7 +136,6 @@ public class AppUi extends javax.swing.JFrame {
 
         btListarLancamentos.setText("Listar Lançamentos");
         btListarLancamentos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btListarLancamentos.setMaximumSize(null);
         btListarLancamentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btListarLancamentosActionPerformed(evt);
@@ -135,7 +144,6 @@ public class AppUi extends javax.swing.JFrame {
 
         btListarDespesas.setText("Listar Despesas");
         btListarDespesas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btListarDespesas.setMaximumSize(null);
         btListarDespesas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btListarDespesasActionPerformed(evt);
@@ -144,7 +152,6 @@ public class AppUi extends javax.swing.JFrame {
 
         btListarReceitas.setText("Listar Receitas");
         btListarReceitas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btListarReceitas.setMaximumSize(null);
         btListarReceitas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btListarReceitasActionPerformed(evt);
@@ -157,7 +164,7 @@ public class AppUi extends javax.swing.JFrame {
             jPListagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPListagemLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btListarLancamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btListarLancamentos)
                 .addGap(12, 12, 12)
                 .addComponent(btListarReceitas, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -218,6 +225,13 @@ public class AppUi extends javax.swing.JFrame {
 
         incluirReceita.setVisible(true);
         
+        //Despesas despesa = incluirReceita.getDespesa;
+        
+        //if (despesa != null){
+       //     Lancamento.incluirAluno(despesa);
+        //}
+        
+        
     }//GEN-LAST:event_btIncluirReceitaActionPerformed
 
     private void btIncluirDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIncluirDespesaActionPerformed
@@ -265,7 +279,7 @@ public class AppUi extends javax.swing.JFrame {
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+            public void run() {             
                 new AppUi().setVisible(true);
             }
         });
@@ -280,9 +294,11 @@ public class AppUi extends javax.swing.JFrame {
     private javax.swing.JButton btListarReceitas;
     private javax.swing.JButton btSaldoAtual;
     private javax.swing.JButton btSaldoPeriodo;
+    private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JPanel jPConsultas;
     private javax.swing.JPanel jPLancamentos;
     private javax.swing.JPanel jPListagem;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbResultado;
     // End of variables declaration//GEN-END:variables
 }

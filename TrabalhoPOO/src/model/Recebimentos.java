@@ -11,11 +11,11 @@ import java.time.LocalDate;
  *
  * @author pedro
  */
-public class Receita extends Lancamento {
+public class Recebimentos extends Lancamento {
 
     private Recebimento recebimento;
 
-    public Receita(
+    public Recebimentos(
             Double valor,
             LocalDate date,
             Recebimento recebimento

@@ -44,7 +44,7 @@ public class Conta {
         ArrayList<Lancamento> receita = getReceita();
         Double saldoAtualCalculo = 0.0;
         for (Lancamento saldo : receita) {
-            if (saldo instanceof Receita) {
+            if (saldo instanceof Recebimentos) {
                 saldoAtualCalculo += saldo.getValor();
             }
         }
@@ -57,7 +57,7 @@ public class Conta {
         Double despesasTotais = 0.0;
 
         for (Lancamento l : despesas) {
-            if (l instanceof Despesa) {
+            if (l instanceof Despesas) {
                 despesasTotais += l.getValor();
             }
         }
@@ -71,7 +71,7 @@ public class Conta {
 
 
         for (Lancamento l : despesas) {
-            if (l instanceof Despesa) {
+            if (l instanceof Despesas) {
                 if (l.getData().isBefore(LocalDate.now()) || l.getData().equals(LocalDate.now())) {
                     despesasAtuais += l.getValor();
                 }
@@ -84,7 +84,7 @@ public class Conta {
         ArrayList<Lancamento> receita = getReceita();
         Double saldoAtualCalculo = 0.0;
         for (Lancamento saldo : receita) {
-            if (saldo instanceof Receita) {
+            if (saldo instanceof Recebimentos) {
                 if (saldo.getData().isBefore(LocalDate.now()) || saldo.getData().equals(LocalDate.now())) {
                     saldoAtualCalculo += saldo.getValor();
                 }
@@ -99,7 +99,7 @@ public class Conta {
         ArrayList<Lancamento> receita = new ArrayList<>();
 
         for (Lancamento lancamento : this.lancamento) {
-            if (lancamento instanceof Receita) {
+            if (lancamento instanceof Recebimentos) {
                 receita.add(lancamento);
             }
         }
@@ -107,7 +107,7 @@ public class Conta {
     }
 
     public void inserirReceita(Lancamento receita) {
-        if (receita instanceof Receita) {
+        if (receita instanceof Recebimentos) {
             lancamento.add(receita);
         } else {
             throw new IllegalArgumentException("Não é uma instancia de Receita");
@@ -119,7 +119,7 @@ public class Conta {
     public ArrayList<Lancamento> getDespesas() {
         ArrayList<Lancamento> despesa = new ArrayList<>();
         for (Lancamento lancamento : this.lancamento) {
-            if (lancamento instanceof Despesa) {
+            if (lancamento instanceof Despesas) {
                 despesa.add(lancamento);
             }
         }
@@ -127,7 +127,7 @@ public class Conta {
     }
 
     public void inserirDespesa(Lancamento despesa) {
-        if (despesa instanceof Despesa) {
+        if (despesa instanceof Despesas) {
             lancamento.add(despesa);
         } else {
             throw new IllegalArgumentException("Não é uma instancia de Despesa");
