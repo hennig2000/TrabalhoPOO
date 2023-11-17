@@ -19,12 +19,12 @@ public class DataBase {
         
         public void insereTexto(Lancamento lancamento) {
         
-        try (PrintWriter escreveCSV = new PrintWriter(new FileWriter("C:\\Users\\Usuario\\Desktop\\teste.txt", true))) {
+        try (PrintWriter escreveCSV = new PrintWriter(new FileWriter("‪C:\\Data\\data.csv", true))) {
             
             String dateFormatted = lancamento.getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
             
             if(lancamento instanceof Despesa){
-                escreveCSV.println("D;" + lancamento.getValor() + ";" + dateFormatted + ";" + ((Despesa) lancamento).getDespesa());
+                escreveCSV.println("D;" + lancamento.getValor() + ";" + dateFormatted + ";" + ((Despesa) lancamento).getDespesas());
             } else if(lancamento instanceof Receita){
                 escreveCSV.println("R;" + lancamento.getValor() + ";" + dateFormatted + ";" + ((Receita) lancamento).getReceita());
             }
