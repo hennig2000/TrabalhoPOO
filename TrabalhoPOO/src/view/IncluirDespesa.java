@@ -1,8 +1,10 @@
 package view;
 
-import enuns.Despesa;
+import enuns.Despesas;
 import java.time.LocalDate;
-import model.Despesas;
+import java.time.format.DateTimeFormatter;
+import model.Despesa;
+import model.DataBase;
 
 public class IncluirDespesa extends javax.swing.JDialog {
     
@@ -209,30 +211,34 @@ public class IncluirDespesa extends javax.swing.JDialog {
 
     private void btConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarActionPerformed
 
-        Despesa despesa = null;
+        Despesas despesa = null;
 
         if (rbEntretenimento.isEnabled()) {
-            despesa = Despesa.ENTRETERIMENTO;
+            despesa = Despesas.ENTRETERIMENTO;
         } else if (rbAlimentacao.isEnabled()) {
-            despesa = Despesa.ALIMENTACAO;
+            despesa = Despesas.ALIMENTACAO;
         } else if (rbResidencia.isEnabled()) {
-            despesa = Despesa.RESIDENCIA;
+            despesa = Despesas.RESIDENCIA;
         } else if (rbEducacao.isEnabled()) {
-            despesa = Despesa.EDUCACAO;
+            despesa = Despesas.EDUCACAO;
         } else if (rbOutras.isEnabled()) {
-            despesa = Despesa.OUTRAS;
+            despesa = Despesas.OUTRAS;
         } else if (rbTransporte.isEnabled()) {
-            despesa = Despesa.TRANSPORTE;
+            despesa = Despesas.TRANSPORTE;
         } else if (rbSaude.isEnabled()) {
-            despesa = Despesa.SAUDE;
+            despesa = Despesas.SAUDE;
         } 
-
-        LocalDate data = LocalDate.parse(tfData.getText());
+        
+        
+        LocalDate data = LocalDate.parse(tfData.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
         double valor = Double.parseDouble(tfValor.getText());
 
-        Despesas despesas = new Despesas(valor, data, despesa);
-
+        Despesa despesas = new Despesa(valor, data, despesa);
+        
+        DataBase db = new DataBase();
+        db.insereTexto(despesas);
+        
         setVisible(false);
 
     }//GEN-LAST:event_btConfirmarActionPerformed

@@ -5,8 +5,8 @@
  */
 package model;
 
-import enuns.Receita;
-import enuns.Despesa;
+import enuns.Receitas;
+import enuns.Despesas;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
@@ -24,10 +24,10 @@ public class TrabalhoFinal {
 
         Conta conta = new Conta();
 
-        Despesas despesa = new Despesas(500.0, LocalDate.now(), Despesa.SAUDE);
-        Despesas despesa1 = new Despesas(500.0, LocalDate.of(2024, Month.MARCH, 15), Despesa.SAUDE);
-        Despesas despesa2 = new Despesas(500.0, LocalDate.now(), Despesa.TRANSPORTE);
-        Despesas despesa3 = new Despesas(0.0, LocalDate.now(), Despesa.ALIMENTACAO);
+        Despesa despesa = new Despesa(500.0, LocalDate.now(), Despesas.SAUDE);
+        Despesa despesa1 = new Despesa(500.0, LocalDate.of(2024, Month.MARCH, 15), Despesas.SAUDE);
+        Despesa despesa2 = new Despesa(500.0, LocalDate.now(), Despesas.TRANSPORTE);
+        Despesa despesa3 = new Despesa(0.0, LocalDate.now(), Despesas.ALIMENTACAO);
 
         conta.inserirDespesa(despesa);
         conta.inserirDespesa(despesa1);
@@ -37,10 +37,10 @@ public class TrabalhoFinal {
         ArrayList<Lancamento> topDespesas = conta.getDespesas();
 
         for (Lancamento l : topDespesas) {
-            if (l instanceof Despesas) {
+            if (l instanceof Despesa) {
                 System.out.println(l.getValor());
                 System.out.println(l.getData());
-                System.out.println(((Despesas) l).getDespesa());
+                System.out.println(((Despesa) l).getDespesa());
             }
 
         }

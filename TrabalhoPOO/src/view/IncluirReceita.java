@@ -1,8 +1,10 @@
 package view;
 
-import enuns.Receita;
+import model.Receita;
 import java.time.LocalDate;
-import model.Receitas;
+import enuns.Receitas;
+import java.time.format.DateTimeFormatter;
+import model.DataBase;
 
 public class IncluirReceita extends javax.swing.JDialog {
     
@@ -194,12 +196,15 @@ public class IncluirReceita extends javax.swing.JDialog {
             receita = Receitas.OUTRAS;
         }
 
-        LocalDate data = LocalDate.parse(tfData.getText());
+        LocalDate data = LocalDate.parse(tfData.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
         double valor = Double.parseDouble(tfValor.getText());
 
         receitas = new Receita(valor, data, receita);
-
+        
+        DataBase db = new DataBase();
+        db.insereTexto(receitas);
+        
         setVisible(false);
 
 

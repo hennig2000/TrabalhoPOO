@@ -5,9 +5,9 @@
 package view;
 
 import model.Conta;
-import model.Despesas;
+import model.Despesa;
 import model.Lancamento;
-import enuns.Receita;
+import model.Receita;
 
 public class AppUi extends javax.swing.JFrame {
 

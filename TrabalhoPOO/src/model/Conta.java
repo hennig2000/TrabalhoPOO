@@ -5,7 +5,6 @@
  */
 package model;
 
-import enuns.Receita;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -58,7 +57,7 @@ public class Conta {
         Double despesasTotais = 0.0;
 
         for (Lancamento l : despesas) {
-            if (l instanceof Despesas) {
+            if (l instanceof Despesa) {
                 despesasTotais += l.getValor();
             }
         }
@@ -72,7 +71,7 @@ public class Conta {
 
 
         for (Lancamento l : despesas) {
-            if (l instanceof Despesas) {
+            if (l instanceof Despesa) {
                 if (l.getData().isBefore(LocalDate.now()) || l.getData().equals(LocalDate.now())) {
                     despesasAtuais += l.getValor();
                 }
@@ -120,7 +119,7 @@ public class Conta {
     public ArrayList<Lancamento> getDespesas() {
         ArrayList<Lancamento> despesa = new ArrayList<>();
         for (Lancamento lancamento : this.lancamento) {
-            if (lancamento instanceof Despesas) {
+            if (lancamento instanceof Despesa) {
                 despesa.add(lancamento);
             }
         }
@@ -128,7 +127,7 @@ public class Conta {
     }
 
     public void inserirDespesa(Lancamento despesa) {
-        if (despesa instanceof Despesas) {
+        if (despesa instanceof Despesa) {
             lancamento.add(despesa);
         } else {
             throw new IllegalArgumentException("Não é uma instancia de Despesa");
