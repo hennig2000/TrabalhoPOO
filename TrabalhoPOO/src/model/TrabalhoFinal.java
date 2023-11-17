@@ -40,7 +40,7 @@ public class TrabalhoFinal {
             if (l instanceof Despesa) {
                 System.out.println(l.getValor());
                 System.out.println(l.getData());
-                System.out.println(((Despesa) l).getDespesa());
+                System.out.println(((Despesa) l).getDespesas());
             }
 
         }
