@@ -1,7 +1,12 @@
 package view;
 
-public class IncluirDespesa extends javax.swing.JDialog {
+import enuns.Despesa;
+import java.time.LocalDate;
+import model.Despesas;
 
+public class IncluirDespesa extends javax.swing.JDialog {
+    
+    
     public IncluirDespesa(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -203,6 +208,30 @@ public class IncluirDespesa extends javax.swing.JDialog {
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarActionPerformed
+
+        Despesa despesa = null;
+
+        if (rbEntretenimento.isEnabled()) {
+            despesa = Despesa.ENTRETERIMENTO;
+        } else if (rbAlimentacao.isEnabled()) {
+            despesa = Despesa.ALIMENTACAO;
+        } else if (rbResidencia.isEnabled()) {
+            despesa = Despesa.RESIDENCIA;
+        } else if (rbEducacao.isEnabled()) {
+            despesa = Despesa.EDUCACAO;
+        } else if (rbOutras.isEnabled()) {
+            despesa = Despesa.OUTRAS;
+        } else if (rbTransporte.isEnabled()) {
+            despesa = Despesa.TRANSPORTE;
+        } else if (rbSaude.isEnabled()) {
+            despesa = Despesa.SAUDE;
+        } 
+
+        LocalDate data = LocalDate.parse(tfData.getText());
+
+        double valor = Double.parseDouble(tfValor.getText());
+
+        Despesas despesas = new Despesas(valor, data, despesa);
 
         setVisible(false);
 

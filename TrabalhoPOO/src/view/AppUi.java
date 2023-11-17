@@ -7,11 +7,12 @@ package view;
 import model.Conta;
 import model.Despesas;
 import model.Lancamento;
+import enuns.Receita;
 
 public class AppUi extends javax.swing.JFrame {
 
     Conta conta = new Conta();
-    
+
     public AppUi() {
         initComponents();
     }
@@ -216,35 +217,35 @@ public class AppUi extends javax.swing.JFrame {
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
 
-         lbResultado.setText("");
+        lbResultado.setText("");
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void btIncluirReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIncluirReceitaActionPerformed
-        
+
         IncluirReceita incluirReceita = new IncluirReceita(this, true);
 
         incluirReceita.setVisible(true);
         
-        //Despesas despesa = incluirReceita.getDespesa;
+        Receita receita = incluirReceita.getReceitas();
         
-        //if (despesa != null){
-       //     Lancamento.incluirAluno(despesa);
-        //}
-        
-        
+        if(receita != null){
+            
+        }
+
+
     }//GEN-LAST:event_btIncluirReceitaActionPerformed
 
     private void btIncluirDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIncluirDespesaActionPerformed
-            
+
         IncluirDespesa incluirDespesa = new IncluirDespesa(this, true);
 
         incluirDespesa.setVisible(true);
     }//GEN-LAST:event_btIncluirDespesaActionPerformed
 
     private void btSaldoPeriodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSaldoPeriodoActionPerformed
-        
-         lbResultado.setText("Saldo De Todo Perido: ");
-        
+
+        lbResultado.setText("Saldo De Todo Perido: ");
+
     }//GEN-LAST:event_btSaldoPeriodoActionPerformed
 
     private void btListarLancamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListarLancamentosActionPerformed
@@ -256,30 +257,30 @@ public class AppUi extends javax.swing.JFrame {
     }//GEN-LAST:event_btListarLancamentosActionPerformed
 
     private void btListarDespesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListarDespesasActionPerformed
-        
+
         ListagemUi telaListagem = new ListagemUi(this, true);
 
         telaListagem.setVisible(true);
     }//GEN-LAST:event_btListarDespesasActionPerformed
 
     private void btListarReceitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListarReceitasActionPerformed
-        
+
         ListagemUi telaListagem = new ListagemUi(this, true);
 
         telaListagem.setVisible(true);
     }//GEN-LAST:event_btListarReceitasActionPerformed
 
     private void btSaldoAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSaldoAtualActionPerformed
-        
+
         lbResultado.setText("Saldo Atual: ");
-       
-        
+
+
     }//GEN-LAST:event_btSaldoAtualActionPerformed
 
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {             
+            public void run() {
                 new AppUi().setVisible(true);
             }
         });

@@ -1,12 +1,22 @@
 package view;
 
-public class IncluirReceita extends javax.swing.JDialog {
+import enuns.Receita;
+import java.time.LocalDate;
+import model.Receitas;
 
+public class IncluirReceita extends javax.swing.JDialog {
+    
+    private Receita receitas;
+
+    public Receita getReceitas() {
+        return receitas;
+    }
+    
     public IncluirReceita(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -170,8 +180,28 @@ public class IncluirReceita extends javax.swing.JDialog {
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarActionPerformed
+        
+        Receitas receita = null;
+        
+        
+        if (rbSalario.isEnabled()) {
+            receita = Receitas.SALARIO;
+        } else if (rbDecimo.isEnabled()) {
+            receita = Receitas.DECIME_TERCEIRO;
+        } else if (rbFerias.isEnabled()) {
+            receita = Receitas.FERIAS;
+        } else if (rbOutras.isEnabled()) {
+            receita = Receitas.OUTRAS;
+        }
+
+        LocalDate data = LocalDate.parse(tfData.getText());
+
+        double valor = Double.parseDouble(tfValor.getText());
+
+        receitas = new Receita(valor, data, receita);
 
         setVisible(false);
+
 
     }//GEN-LAST:event_btConfirmarActionPerformed
 
