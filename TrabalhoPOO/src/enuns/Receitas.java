@@ -12,7 +12,7 @@ package enuns;
  */
 public enum Receitas {
     SALARIO,
-    DECIME_TERCEIRO,
+    DECIMO_TERCEIRO,
     FERIAS,
     OUTRAS
 }

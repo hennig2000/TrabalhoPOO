@@ -213,19 +213,19 @@ public class IncluirDespesa extends javax.swing.JDialog {
 
         Despesas despesa = null;
 
-        if (rbEntretenimento.isEnabled()) {
+        if (rbEntretenimento.isSelected()) {
             despesa = Despesas.ENTRETERIMENTO;
-        } else if (rbAlimentacao.isEnabled()) {
+        } else if (rbAlimentacao.isSelected()) {
             despesa = Despesas.ALIMENTACAO;
-        } else if (rbResidencia.isEnabled()) {
+        } else if (rbResidencia.isSelected()) {
             despesa = Despesas.RESIDENCIA;
-        } else if (rbEducacao.isEnabled()) {
+        } else if (rbEducacao.isSelected()) {
             despesa = Despesas.EDUCACAO;
-        } else if (rbOutras.isEnabled()) {
+        } else if (rbOutras.isSelected()) {
             despesa = Despesas.OUTRAS;
-        } else if (rbTransporte.isEnabled()) {
+        } else if (rbTransporte.isSelected()) {
             despesa = Despesas.TRANSPORTE;
-        } else if (rbSaude.isEnabled()) {
+        } else if (rbSaude.isSelected()) {
             despesa = Despesas.SAUDE;
         } 
         

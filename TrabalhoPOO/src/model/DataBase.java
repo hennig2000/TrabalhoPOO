@@ -4,9 +4,7 @@
  */
 package model;
 
-import enuns.Receitas;
-import java.io.BufferedWriter;
-import java.io.File;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,7 +19,7 @@ public class DataBase {
         
         public void insereTexto(Lancamento lancamento) {
         
-        try (PrintWriter escreveCSV = new PrintWriter(new FileWriter("C:\\Pedro\\POO_Trabalho\\TrabalhoPOO\\TrabalhoPOO\\db\\lancamentos.txt", true))) {
+        try (PrintWriter escreveCSV = new PrintWriter(new FileWriter("C:\\Users\\Usuario\\Desktop\\teste.txt", true))) {
             
             String dateFormatted = lancamento.getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
             

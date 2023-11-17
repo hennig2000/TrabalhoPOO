@@ -186,13 +186,13 @@ public class IncluirReceita extends javax.swing.JDialog {
         Receitas receita = null;
         
         
-        if (rbSalario.isEnabled()) {
+        if (rbDecimo.isSelected()) {
+            receita = Receitas.DECIMO_TERCEIRO;
+        } else if (rbSalario.isSelected()) {
             receita = Receitas.SALARIO;
-        } else if (rbDecimo.isEnabled()) {
-            receita = Receitas.DECIME_TERCEIRO;
-        } else if (rbFerias.isEnabled()) {
+        } else if (rbFerias.isSelected()) {
             receita = Receitas.FERIAS;
-        } else if (rbOutras.isEnabled()) {
+        } else if (rbOutras.isSelected()) {
             receita = Receitas.OUTRAS;
         }
 

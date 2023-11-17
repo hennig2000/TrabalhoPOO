@@ -50,7 +50,7 @@ public class TrabalhoFinal {
         Lancamento receita = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Receitas.SALARIO);
         Lancamento receita1 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Receitas.FERIAS);
         Lancamento receita2 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Receitas.OUTRAS);
-        Lancamento receita3 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Receitas.DECIME_TERCEIRO);
+        Lancamento receita3 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Receitas.DECIMO_TERCEIRO);
         Lancamento receita4 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Receitas.SALARIO);
 
         conta.inserirReceita(receita);
