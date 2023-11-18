@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import enuns.Receitas;
@@ -51,9 +46,9 @@ public class TrabalhoFinal {
         Lancamento receita1 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Receitas.FERIAS);
         Lancamento receita2 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Receitas.OUTRAS);
         Lancamento receita3 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Receitas.DECIMO_TERCEIRO);
-        Lancamento receita4 = new Receita(1000.0, LocalDate.of(2023, Month.NOVEMBER, 15), Receitas.SALARIO);
+        Lancamento receita4 = new Receita(2500.0, LocalDate.of(2023, Month.NOVEMBER, 15), Receitas.SALARIO);
 
-        conta.inserirReceita(receita);
+       conta.inserirReceita(receita);
         conta.inserirReceita(receita1);
         conta.inserirReceita(receita2);
         conta.inserirReceita(receita3);

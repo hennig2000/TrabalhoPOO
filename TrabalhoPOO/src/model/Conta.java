@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.time.LocalDate;
@@ -13,6 +8,8 @@ import java.util.ArrayList;
  * @author pedro
  */
 public class Conta {
+
+    DataBase dataBase = new DataBase();
 
     private double saldoTotal;
     private double saldoAtual;
@@ -39,8 +36,22 @@ public class Conta {
         this.saldoTotal = saldoTotal;
     }
 
-    private void setSaldoTotal() {
+    /**
+     * Construtor da classe conta, ele é responsável por iniciar a conta
+     * trazendo do arquivo cvs os Lançamentos já cadastrados, além disso seta o
+     * valor do saldo total e atual.
+     *
+     * @retunr Lista<Lancamento>
+     *
+     */
+    public Conta() {
+        setLancamento(dataBase.lerAerquivoCsv());
+        setSaldoTotal();
+        setSaldoAtual();
+    }
 
+    
+    private void setSaldoTotal() {
         ArrayList<Lancamento> receita = getReceita();
         Double saldoAtualCalculo = 0.0;
         for (Lancamento saldo : receita) {
@@ -68,7 +79,6 @@ public class Conta {
         ArrayList<Lancamento> despesas = getDespesas();
 
         Double despesasAtuais = 0.0;
-
 
         for (Lancamento l : despesas) {
             if (l instanceof Despesa) {
@@ -109,6 +119,7 @@ public class Conta {
     public void inserirReceita(Lancamento receita) {
         if (receita instanceof Receita) {
             lancamento.add(receita);
+            dataBase.insereTexto(receita);
         } else {
             throw new IllegalArgumentException("Não é uma instancia de Receita");
         }
@@ -129,6 +140,8 @@ public class Conta {
     public void inserirDespesa(Lancamento despesa) {
         if (despesa instanceof Despesa) {
             lancamento.add(despesa);
+            dataBase.insereTexto(despesa);
+
         } else {
             throw new IllegalArgumentException("Não é uma instancia de Despesa");
         }
