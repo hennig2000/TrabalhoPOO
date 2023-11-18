@@ -9,10 +9,21 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
- *
- * @author pedro
+ * Esta classe representa uma lançamento para controle de gastos
+ * @author Pedro Hennig 
+ * @author Pedro Henrique Teloeken de Souza
+ * @author Ralf Iran Domingues
  */
 public abstract class Lancamento {
+    
+    
+    /**
+     * Construtor da classe Lancamento
+     *
+     * @param valor o valor de lançamento
+     * @param data a data de lançamento
+     * 
+     */
     
     public Lancamento(Double valor , LocalDate data){
          this.valor = valor;

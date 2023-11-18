@@ -10,12 +10,22 @@ import model.Lancamento;
 import enuns.Receitas;
 
 /**
- *
- * @author pedro
+ * Esta classe representa uma receita para controle de gastos
+ * @author Pedro Hennig 
+ * @author Pedro Henrique Teloeken de Souza
+ * @author Ralf Iran Domingues
  */
 public class Receita extends Lancamento {
 
     private Receitas receita;
+    
+     /**
+     * Construtor da classe Receita, ele é responsável por iniciar o objeto receita
+     *
+     * @param valor o valor que foi ganho de receita
+     * @param data a data de lançamento desse ganho
+     * @param receita tipo de receita para registro
+     */
 
     public Receita(
             Double valor,

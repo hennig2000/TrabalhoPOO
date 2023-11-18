@@ -12,10 +12,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *
- * @author Usuario
+ * Esta classe representa uma um banco de dados para guardar os lançamentos
+ * @author Pedro Hennig 
+ * @author Pedro Henrique Teloeken de Souza
+ * @author Ralf Iran Domingues
  */
 public class DataBase {
+    
+    /**
+     * Método responsável por escrever no arquivo CSV os lançamentos efetuados,
+     * escrevendo o valor a data e oque foi lançado (tipo de despesa/ receita).
+     *
+     */
 
     public void insereTexto(Lancamento lancamento) {
 
@@ -37,6 +45,14 @@ public class DataBase {
             e.printStackTrace();
         }
     }
+    
+    /**
+     * Método responsável por ler o arquivo CSV de lançamentos efetuados, onde
+     * fica registrado oque foi feito anteriormente e está salvo, e retornar
+     * essa lista de lançamentos.
+     *
+     * @return Retorna uma lista de lançamentos
+     */
 
     public ArrayList<Lancamento> lerAerquivoCsv() {
         File file = new File("C:\\Data\\data.csv");

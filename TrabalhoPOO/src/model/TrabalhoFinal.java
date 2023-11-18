@@ -7,8 +7,10 @@ import java.time.Month;
 import java.util.ArrayList;
 
 /**
- *
- * @author pedro
+ * Esta classe representa uma interface para teste das demais classes
+ * @author Pedro Hennig 
+ * @author Pedro Henrique Teloeken de Souza
+ * @author Ralf Iran Domingues
  */
 public class TrabalhoFinal {
 

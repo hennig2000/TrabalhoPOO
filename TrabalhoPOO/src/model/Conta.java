@@ -4,8 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
- *
- * @author pedro
+ * Esta classe representa uma Conta para controle de gastos
+ * @author Pedro Hennig 
+ * @author Pedro Henrique Teloeken de Souza
+ * @author Ralf Iran Domingues
  */
 public class Conta {
 
@@ -40,8 +42,6 @@ public class Conta {
      * Construtor da classe conta, ele é responsável por iniciar a conta
      * trazendo do arquivo cvs os Lançamentos já cadastrados, além disso seta o
      * valor do saldo total e atual.
-     *
-     * @retunr Lista<Lancamento>
      *
      */
     public Conta() {
